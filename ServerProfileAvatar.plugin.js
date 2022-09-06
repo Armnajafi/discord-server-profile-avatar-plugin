@@ -1,12 +1,18 @@
-/**
+ /**
  * @name ServerProfileAvatar
  * @author Armnajafi
- * @description A plugin to download the profile picture inside the profile server"
+ * @description  A plugin to download the profile picture inside the profile server
  * @version 0.0.1
+ * @invite dXFaduAzdr
+ * @authorId 918209161769148506
+ * @authorLink https://my.armnajafi.ir
+ * @website https://github.com/Armnajafi/
+ * @source https://github.com/Armnajafi/discord-server-profile-avatar-plugin/
  */
 
-module.exports = () => ({
-    ServerAvatar(){
+module.exports = class ServerProfileAvatar {
+	
+	ServerAvatar(){
 			setTimeout(() => {
 				if(document.getElementsByClassName("layer-2aCOJ3")[0]){
 					if(document.getElementsByClassName("miniAvatar-dnzs_w")[0]){
@@ -28,7 +34,8 @@ module.exports = () => ({
 					}
 				}
 			} , 900)
-   },
+   }
+	
    constructor(meta) {
 	    if (window.ZLibrary) {
 				ZLibrary.PluginUpdater.checkForUpdate(
@@ -36,16 +43,17 @@ module.exports = () => ({
 				  this.getVersion(),
 				  "https://github.com/Armnajafi/discord-server-profile-avatar-plugin/ServerProfileAvatar.plugin.js"
 				);
-			  }
+	    }
 			BdApi.showToast("ServerProfileAvatar is Ready to start", {type: "success"});
-	   },
-   start() {
-		document.addEventListener("click" , this.ServerAvatar)
+	}
+	
+    start() {
+     	document.addEventListener("click" , this.ServerAvatar)
 		BdApi.showToast("ServerProfileAvatar is Started", {type: "success"});
-   },
-   stop() {
-	 	document.removeEventListener("click" , this.ServerAvatar)
+    } 
+	
+    stop() {
+        document.removeEventListener("click" , this.ServerAvatar)
 		BdApi.showToast("ServerProfileAvatar is Stoped");
-   }
-});
-
+    }
+}
